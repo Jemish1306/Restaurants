@@ -17,6 +17,8 @@ const ForgetPassword = () => {
               type="email"
               placeholder="Email"
             />
+
+            
           </div>
           <div className="flex items-center justify-between">
             <button
