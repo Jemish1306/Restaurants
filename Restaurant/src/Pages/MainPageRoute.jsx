@@ -19,6 +19,7 @@ const MainPageRoute = () => {
   style={{backgroundImage:`url(${bg})`,  filter: 'blur(8px)'}}> 
 
   </div>
+
   <div className=' relative flex items-center justify-center w-full bg-opacity-90  P-8 rounded  bg-gray-900'>
 
     
@@ -47,7 +48,7 @@ const MainPageRoute = () => {
      border-2 rounded-md hover:border-red-200 shadow-lg shadow-pink-300  border-green-400 items-center justify-center 
       '><Link to='./Login'> GO to Login Model </Link></button>
    <label>go to Password Screen</label>
-   <Link to="./Password">
+   <Link to="./forgetpassword">
     <button className='w-60  font-serif text-green-500 font-bold 
      border-2 rounded-md hover:border-red-200 shadow-lg shadow-red-300  border-green-400 items-center justify-center '
     >Forgrt Password</button></Link>
