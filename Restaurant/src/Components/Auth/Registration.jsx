@@ -137,7 +137,7 @@ export default RegistrationForm;
 
 
 import logo from '../assets/Img/Group.png'
-import RestaurantCreationModal from '../Components/RestaurantCreationModal';
+import RestaurantCreationModal from '../RestaurantCreationModal';
 
 export function RegistrationForm4() {
   return (

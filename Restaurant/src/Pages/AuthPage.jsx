@@ -1,6 +1,6 @@
 import React from 'react'
-import { Login } from '../Auth/Login'
-import  {  ForgetPasswordAndEnterOTP } from './../Auth/ForgetPassword';
+import { Login } from '../Components/Auth/Login'
+import  {  ForgetPasswordAndEnterOTP } from '../Components/Auth/ForgetPassword';
 
 const AuthPage = () => {
   return (
@@ -13,7 +13,7 @@ const AuthPage = () => {
 
     </div>
 
-    
+
     </>
   )
 }

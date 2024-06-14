@@ -1,5 +1,5 @@
 
-import {   RegistrationForm4 } from '../Auth/Registration';
+import {   RegistrationForm4 } from '../Components/Auth/Registration';
 
 
 const RegistrationPage = () => {
