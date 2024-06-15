@@ -1,23 +1,22 @@
 import { useState } from 'react';
-import bg from '../assets/Img/restobg.jpg'
-import { Link } from 'react-router-dom';
-import logo from '../assets/Img/Group.png'
-
-
-
-
-
-
+import bg from '../../assets/Img/restobg.jpg';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import logo from '../../assets/Img/Group.png'
 
  export function  Login ()  {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  // const imgBaseUrl = process.env.BG
+
+  const navigate=useNavigate();
+
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (email === 'test@example.com' && password === 'password') {
       alert('Login successful');
+      navigate('/deshbord')
     } else {
       setError('Incorrect Password');
     }
@@ -30,6 +29,7 @@ import logo from '../assets/Img/Group.png'
         className="absolute inset-0 bg-center bg-cover"
         style={{ backgroundImage: `url(${bg})`, filter:'blur(8px)' }}
       ></div>
+      
 
       {/* Left side for the login form */}
       <div className="relative w-full md:w-1/2 flex items-center justify-center  bg-opacity-0 p-8 rounded-lg shadow-lg">
@@ -64,7 +64,7 @@ import logo from '../assets/Img/Group.png'
                 <input type="checkbox" className="form-checkbox text-yellow-500" />
                 <span className="ml-2">Remember Me</span>
               </label>
-              <a href="#" className="text-sm text-yellow-500 hover:text-yellow-700">Forgot Password?</a>
+              <Link to="/forgetpassword" className="text-sm text-yellow-500 hover:text-yellow-700">Forgot Password?</Link>
             </div>
             <button type="submit" className="w-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
               Login

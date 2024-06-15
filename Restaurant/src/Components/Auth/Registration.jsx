@@ -1,145 +1,13 @@
 import  { useState } from 'react';
-import bg from '../assets/Img/restobg.jpg'
+import bg from '../../assets/Img/restobg.jpg'
 import { Link } from 'react-router-dom';
 
- const  RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    gender: 'Male',
-    age: '',
-    address: '',
-    password: '',
-    termsAccepted: false,
-  });
+        
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formData);
-  };
-  return (
-    <>
-    
-    <div className="flex items-center justify-center min-h-screen bg-gray-800">
-      <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl mb-4 text-white">Registration</h2>
-        {['firstName', 'lastName', 'email', 'phone', 'age', 'address', 'password'].map((field) => (
-          <div key={field} className="mb-4 ">
-            <label className="block mb-1 text-white" htmlFor={field}>
-              {field.charAt(0).toUpperCase() + field.slice(1)}
-            </label>
-            <input
-              type={field === 'password' ? 'password' : 'text'}
-              id={field}
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md text-gray-900"
-              required
-            />
-          </div>
-        ))}
-        <div className="mb-4">
-          <label className="block mb-1 text-white" htmlFor="gender">
-            Gender
-          </label>
-          <select
-            id="gender"
-            name="gender"
-            value={formData.gender}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md text-gray-900"
-            required
-          > 
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 text-white">
-            <input
-              type="checkbox"
-              name="termsAccepted"
-              checked={formData.termsAccepted}
-              onChange={handleChange}
-              className="mr-2"
-              required
-            />
-            I agree to the Terms and Conditions
-          </label>
-        </div>
-        <button type="submit" className="w-full bg-yellow-500 text-white py-2 rounded-md">
-          Register
-        </button>
-      </form>
-    </div>
-
-
-
-
-
-    <div className={'min-h-screen flex items-center justify-center'}>
-      <div className='bg-gray-800 p-8 rounded-lg shadow-lg'>
-        <h1 className='text-3xl text-white mb-4'>Registration</h1>
-        <form>
-          <div className='mb-4'>
-            <label className='block text-white'>First Name</label>
-            <input className='w-full p-2 mt-2 bg-gray-700 text-white rounded' type='text' name='firstName' />
-          </div>
-          <div className='mb-4'>
-            <label className='block text-white'>Last Name</label>
-            <input className='w-full p-2 mt-2 bg-gray-700 text-white rounded' type='text' name='lastName' />
-          </div>
-          <div className='mb-4'>
-            <label className='block text-white'>Email</label>
-            <input className='w-full p-2 mt-2 bg-gray-700 text-white rounded' type='email' name='email' />
-          </div>
-          <div className='mb-4'>
-            <label className='block text-white'>Password</label>
-            <input className='w-full p-2 mt-2 bg-gray-700 text-white rounded' type='password' name='password' />
-          </div>
-          <button type='submit' className='w-full bg-yellow-500 text-gray-800 p-2 rounded'>Register</button>
-        </form>
-      </div>
-    </div>
-    </>
-
-
-
-  );
-};
-
-export default RegistrationForm;               
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import logo from '../assets/Img/Group.png'
+import logo from '../../assets/Img/Group.png'
 import RestaurantCreationModal from '../RestaurantCreationModal';
 
-export function RegistrationForm4() {
+export function Registration() {
   return (
     <div className="relative min-h-screen flex flex-col md:flex-row bg-gray-900 shadow-lg">
       {/* Background with blur and opacity */}
@@ -219,7 +87,7 @@ export function RegistrationForm4() {
             <button className="w-full bg-yellow-500 text-gray-900 p-2   rounded">Register</button>
           </form>
           <p className="mt-4 text-white m-8">
-            Already have an account? <Link to="/login" className="text-blue-500">Login</Link>
+            Already have an account? <Link to="/" className="text-blue-500">Login</Link>
           </p>
         </div>
       </div>
