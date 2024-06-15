@@ -10,6 +10,7 @@ import { Registration } from './Components/Auth/Registration'
 import {  ForgetPassword } from './Components/Auth/ForgetPassword'
 import { Login } from './Components/Auth/Login'
 import { Dashboard } from './Components/Admin/Deshboard'
+import { ProfilePage } from './Components/Admin/ProfilePage';
 const App = () => {
 
   return (
@@ -21,6 +22,7 @@ const App = () => {
     <Route path='/register' element={<Registration/>}/>
     <Route path="/forgetpassword" element={<ForgetPassword/>} />
     <Route path='/deshbord' element={<Dashboard/>} />
+    <Route path='ProfilePage' element={<ProfilePage/>}/>
    
   </Routes>
 

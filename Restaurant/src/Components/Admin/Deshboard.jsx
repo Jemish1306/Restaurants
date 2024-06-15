@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Dashboard = () => {
   return (
@@ -13,6 +14,10 @@ export const Dashboard = () => {
           <div className="p-4 bg-gray-700 rounded-lg shadow">
             <h2 className="text-2xl font-bold mb-2">User Management</h2>
             <p>Manage users from here.</p>
+          </div>
+          <div className="p-4 bg-gray-700 rounded-lg shadow">
+            <h2 className="text-2xl font-bold mb-2">User Management</h2>
+          <Link to='/profilePage'>goto Profile Page</Link>
           </div>
         </div>
       </div>
