@@ -62,46 +62,46 @@ export const ProfilePage = () => {
               <div className="flex mb-4">
                 <div className="mr-8 w-1/2">
                   <label className="block mb-1">First Name</label>
-                  <input type="text" value="Jenny" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text"   className="p-2 bg-gray-700 rounded w-full" />
                 </div>
                 <div className="w-1/2">
                   <label className="block mb-1">Last Name</label>
-                  <input type="text" value="Wilson" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text"  className="p-2 bg-gray-700 rounded w-full" />
                 </div>
               </div>
               <div className="flex mb-4">
                 <div className="mr-8 w-1/2">
                   <label className="block mb-1">Phone Number</label>
-                  <input type="text" value="+91-95354 99872" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text" className="p-2 bg-gray-700 rounded w-full" />
                 </div>
                 <div className="w-1/2">
                   <label className="block mb-1">Email Address</label>
-                  <input type="text" value="1901 Thornridge Cir. Shiloh, Hawaii" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text"  className="p-2 bg-gray-700 rounded w-full" />
                 </div>
               </div>
               <div className="flex mb-4">
                 <div className="mr-8 w-1/2">
                   <label className="block mb-1">Restaurant Name</label>
-                  <input type="text" value="Statesman Restaurant" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text"  className="p-2 bg-gray-700 rounded w-full" />
                 </div>
                 <div className="w-1/2">
                   <label className="block mb-1">Gender</label>
-                  <input type="text" value="Male" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text" className="p-2 bg-gray-700 rounded w-full" />
                 </div>
               </div>
               <div className="flex mb-4">
                 <div className="mr-8 w-1/2">
                   <label className="block mb-1">City</label>
-                  <input type="text" value="Surat" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text"  className="p-2 bg-gray-700 rounded w-full" />
                 </div>
                 <div className="w-1/2">
                   <label className="block mb-1">State</label>
-                  <input type="text" value="Gujarat" readOnly className="p-2 bg-gray-700 rounded w-full" />
+                  <input type="text"  className="p-2 bg-gray-700 rounded w-full" />
                 </div>
               </div>
               <div className="mb-4">
                 <label className="block mb-1">Address</label>
-                <textarea value="A-15 Swastik plaza punagam,varachha, jamnagar, gujrat." readOnly className="p-2 bg-gray-700 rounded w-full" />
+                <textarea className="p-2 bg-gray-700 rounded w-full" />
               </div>
             </div>
           </div>
