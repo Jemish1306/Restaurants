@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
         
 
 import logo from '../../assets/Img/Group.png'
-import RestaurantCreationModal from '../RestaurantCreationModal';
+import RestaurantCreationModal from '../Shared/RestaurantCreationModal';
 
 export function Registration() {
   return (
