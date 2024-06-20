@@ -7,6 +7,7 @@ import { ForgetPassword } from "./Components/Auth/ForgetPassword";
 import { Login } from "./Components/Auth/Login";
 import { Dashboard } from "./Components/Admin/Deshboard";
 import ProfilePage from "./Components/Admin/ProfilePage";
+import ProfilePage2 from "./Components/Admin/ProfilePage2";
 
 const App = () => {
   return (
@@ -16,8 +17,9 @@ const App = () => {
         <Route path="/" element={<Login/>} />
         <Route path="/register" element={<Registration />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
-        <Route path="/deshbord" element={<Dashboard />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/deshbord" element={<Dashboard/>} />
+        <Route path="/profile" element={<ProfilePage/>} />
+        <Route path="/profile2" element={<ProfilePage2/>}/>
       </Routes>
       
     </>

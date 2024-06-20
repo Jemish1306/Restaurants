@@ -1,70 +1,80 @@
 // src/Components/Admin/ProfilePage.jsx
 
-import React from 'react';
-
 import Layout from './../Shared/Layout';
 
 const ProfilePage = () => {
   return (
     <Layout>
-    <section className="bg-gray-800 p-6 rounded-lg shadow-lg">
-      <div className="mb-6 flex justify-center">
-        <button className="py-2 px-4 bg-yellow-500 rounded mr-2">Profile</button>
-        <button className="py-2 px-4 bg-gray-700 rounded mr-2">Change Password</button>
-        <button className="py-2 px-4 bg-gray-700 rounded">Terms & Condition</button>
-      </div>
-      <div className="flex justify-center mb-6">
-        <img src="path/to/profile-image.jpg" alt="Profile" className="rounded-full w-32 h-32" />
-      </div>
-      <div className="flex justify-center mb-6">
-        <button className="bg-yellow-500 py-2 px-4 rounded">Edit Profile</button>
-      </div>
-      <div className="flex flex-col items-center">
-        <div className="w-full max-w-lg">
-          <div className="flex mb-4">
-            <div className="mr-8 w-1/2">
-              <label className="block mb-1">First Name</label>
-              <input type="text" value="Jenny" readOnly className="p-2 bg-gray-700 rounded w-full" />
+    <section className="p-8 bg-mainbg rounded-lg text-white">
+      <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-8">
+        <div className="bg-secondary shadow-2xl p-6 rounded-lg w-full lg:w-1/4 h-1/2 lg:h-full">
+          <div className="text-yellow-500 text-lg font-semibold mb-4">Menu</div>
+          <ul className="space-y-4">
+            <li>
+              <button className="py-2 px-4 bg-accent shadow-lg text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500">Profile</button>
+            </li>
+            <li>
+              <button className="py-2 px-4 bg-accent shadow-lg text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500">Change Password</button>
+            </li>
+            <li>
+              <button className="py-2 px-4 bg-accent shadow-lg text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500">Terms & Condition</button>
+            </li>
+          </ul>
+        </div>
+        <div className="bg-secondary shadow-2xl p-6 rounded-lg w-full lg:w-3/4">
+          <div className="flex justify-between items-center mb-4"> 
+            <div className="flex items-center space-x-4">
+              <img src="path/to/profile-image.jpg" alt="Profile" className="rounded-full w-16 h-16" />
+              <div className="flex flex-col">
+                <span className="text-lg font-semibold">Jenny Wilson</span>
+                <span className="text-gray-400">Statesman Restaurant</span>
+              </div>
             </div>
-            <div className="w-1/2">
-              <label className="block mb-1">Last Name</label>
-              <input type="text" value="Wilson" readOnly className="p-2 bg-gray-700 rounded w-full" />
+            <button className="bg-accent text-white  py-2 px-4 rounded-lg hover:bg-yellow-500">Edit Profile</button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="flex flex-col">
+              <label className="text-gray-400">First Name</label>
+              <input type="text" className="p-2 bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">Last Name</label>
+              <input type="text" className="p-2 shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">Email Address</label>
+              <input type="text" className="p-2 shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">Phone Number</label>
+              <input type="text" className="p-2 shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">Restaurant Name</label>
+              <input type="text" className="p-2 w-full shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">Gender</label>
+              <input type="text" className="p-2 shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">City</label>
+              <input type="text" className="p-2 shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">State</label>
+              <input type="text" className="p-2 shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-gray-400">Country</label>
+              <input type="text" className="p-2 shadow-lg bg-accent text-white rounded-xl focus:border-cyan-400" />
+            </div>
+            <div className="flex flex-col md:col-span-2 lg:col-span-3">
+              <label className="text-gray-400">Address</label>
+              <textarea className="p-2 bg-accent shadow-xl text-white rounded-xl w-full focus:border-cyan-400" />
             </div>
           </div>
-          <div className="flex mb-4">
-            <div className="mr-8 w-1/2">
-              <label className="block mb-1">Phone Number</label>
-              <input type="text" value="+91-95354 99872" readOnly className="p-2 bg-gray-700 rounded w-full" />
-            </div>
-            <div className="w-1/2">
-              <label className="block mb-1">Email Address</label>
-              <input type="text" value="jenny.wilson@example.com" readOnly className="p-2 bg-gray-700 rounded w-full" />
-            </div>
-          </div>
-          <div className="flex mb-4">
-            <div className="mr-8 w-1/2">
-              <label className="block mb-1">Restaurant Name</label>
-              <input type="text" value="Statesman Restaurant" readOnly className="p-2 bg-gray-700 rounded w-full" />
-            </div>
-            <div className="w-1/2">
-              <label className="block mb-1">Gender</label>
-              <input type="text" value="Male" readOnly className="p-2 bg-gray-700 rounded w-full" />
-            </div>
-          </div>
-          <div className="flex mb-4">
-            <div className="mr-8 w-1/2">
-              <label className="block mb-1">City</label>
-              <input type="text" value="Surat" readOnly className="p-2 bg-gray-700 rounded w-full" />
-            </div>
-            <div className="w-1/2">
-              <label className="block mb-1">State</label>
-              <input type="text" value="Gujarat" readOnly className="p-2 bg-gray-700 rounded w-full" />
-            </div>
-          </div>
-          <div className="mb-4">
-            <label className="block mb-1">Address</label>
-            <textarea value="A-15 Swastik plaza punagam, varachha, jamnagar, gujrat." readOnly className="p-2 bg-gray-700 rounded w-full" />
-          </div>
+     
         </div>
       </div>
     </section>
