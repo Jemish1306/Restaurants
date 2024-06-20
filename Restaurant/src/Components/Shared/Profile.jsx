@@ -17,6 +17,10 @@ const Profile = () => (
         <button className="bg-yellow-500 text-gray-900 py-2 px-4 rounded-lg hover:bg-yellow-600">Save</button>
       </div>
     </div>
+
+
+
+
   );
   
   export default Profile;

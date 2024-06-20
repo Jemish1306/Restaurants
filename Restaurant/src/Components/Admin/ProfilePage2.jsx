@@ -67,6 +67,9 @@ const ProfilePage2 = () => {
         </div>
       </section>
     </Layout>
+
+
+
   );
 };
 
