@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import bg from '../../assets/Img/restobg.jpg';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import logo from '../../assets/Img/Group.png'
 
  export function  Login ()  {
@@ -16,7 +16,7 @@ import logo from '../../assets/Img/Group.png'
     e.preventDefault();
     if (email === 'test@example.com' && password === 'password') {
       alert('Login successful');
-      navigate('/deshbord')
+      navigate('/profile')
     } else {
       setError('Incorrect Password');
     }
