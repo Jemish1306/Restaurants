@@ -1,29 +1,28 @@
+//BackEnd/Middlewares/authMiddleware.js
 const jwt = require('jsonwebtoken');
-const asyncHandler = require('express-async-handler');
-const User = require('../models/User');
+const dotenv = require('dotenv');
 
-const protect = asyncHandler(async (req, res, next) => {
-  let token;
+dotenv.config();
 
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
-  ) {
-    try {
-      token = req.headers.authorization.split(' ')[1];
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = await User.findById(decoded.id).select('-password');
-      next();
-    } catch (error) {
-      res.status(401);
-      throw new Error('Not authorized, token failed');
-    }
-  }
+const authMiddleware = (req, res, next) => {
+  // Get token from header
+  const token = req.header('x-auth-token');
 
+  // Check if not token
   if (!token) {
-    res.status(401);
-    throw new Error('Not authorized, no token');
+    return res.status(401).json({ msg: 'No token, authorization denied' });
   }
-});
 
-module.exports = { protect };
+  try {
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Add user from payload
+    req.user = decoded.user;
+    next();
+  } catch (err) {
+    res.status(401).json({ msg: 'Token is not valid' });
+  }
+};
+
+module.exports = authMiddleware;

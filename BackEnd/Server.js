@@ -1,23 +1,43 @@
 const express = require('express');
-const cors = require('cors');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const profileRoutes = require('./routes/profileRoutes');
-const userRoutes = require('./routes/userRoutes');
+const errorMiddleware = require('./Middlewares/errorMiddleware');
 
 dotenv.config();
-connectDB();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
-app.use(express.json());
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/api/profile', profileRoutes);
-app.use('/api/users', userRoutes);
+// Routes
+const authRoutes = require('./Routes/authRoutes.js');
+const orderRoutes = require('./Routes/orderRoutes.js');
 
-const PORT = process.env.PORT || 5000;
+// const userRoutes = require('./Routes/');
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.use('/api/auth', authRoutes);
+app.use('/api/orders', orderRoutes);
+// app.use('/api/users', userRoutes);
+
+// Error handling middleware (must be defined after all routes)
+app.use(errorMiddleware);
+// Database connection
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('MongoDB connected');
+  // Start the server
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+})
+.catch(err => {
+  console.error('MongoDB connection error:', err.message);
+  process.exit(1); // Exit process with failure
 });

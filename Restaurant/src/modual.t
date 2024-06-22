@@ -1,10 +1,11 @@
 restaurant-dashboard/
 ├── backend/
 │   ├── DB/
-│   │   ├── db.js
+│   │   ├── CannectDB.js
 │   ├── controllers/
 │   │   ├── authController.js
 │   │   ├── orderController.js
+│   │   ├── RegistrationController.js
 │   │   ├── userController.js
 │   ├── middlewares/
 │   │   ├── authMiddleware.js
@@ -12,6 +13,9 @@ restaurant-dashboard/
 │   ├── models/
 │   │   ├── Order.js
 │   │   ├── User.js
+|   |   |--Registration.js
+|   |   |--ForgotPassword.js
+|   |   |--Login.js
 │   ├── routes/
 │   │   ├── authRoutes.js
 │   │   ├── orderRoutes.js
@@ -201,3 +205,8 @@ Root Files
 README.md: Project documentation.
 .gitignore: Git ignore file.
 package.json: Project metadata and dependencies.
+
+
+
+
+rLn4iVkJwgwj8am6 mongodb password
