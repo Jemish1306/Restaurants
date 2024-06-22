@@ -1,6 +1,6 @@
 restaurant-dashboard/
 ├── backend/
-│   ├── config/
+│   ├── DB/
 │   │   ├── db.js
 │   ├── controllers/
 │   │   ├── authController.js
