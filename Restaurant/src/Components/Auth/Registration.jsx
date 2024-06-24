@@ -1,115 +1,241 @@
-import  { useState } from 'react';
-import bg from '../../assets/Img/restobg.jpg'
+import { useState } from 'react';
+import bg from '../../assets/Img/restobg.jpg';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/Img/Group.png'
-import RestaurantCreationModal from '../Shared/RestaurantCreationModal';
-
-
-
-
+import axios from 'axios';
 
 export function Registration() {
+  const initialFormData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    country: '',
+    state: '',
+    city: '',
+    selectedRestaurant: '',
+    password: '',
+    confirmPassword: '',
+    agreedToTerms: false,
+  };
+
+  const [formData, setformData] = useState(initialFormData);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setformData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSuccess('');
+    setError('');
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      setSuccess('Registration successful! Redirecting...');
+      console.log(response.data); // Handle response as needed
+      // Optionally, redirect or handle success
+    } catch (error) {
+      setError(error.response.data.message || 'An error occurred during registration');
+      console.log('friemterror')
+    }
+  };
+
+
+
+
+
+
+
+  console.log('formdata', formData)
+  const countries = ['Country A', 'Country B', 'Country C'];
+  const states = ['State A', 'State B', 'State C'];
+  const cities = ['City A', 'City B', 'City C'];
+  const restaurants = ['Restaurant A', 'Restaurant B', 'Restaurant C'];
+
   return (
     <div className="relative min-h-screen flex flex-col md:flex-row bg-gray-900 shadow-lg">
-      {/* Background with blur and opacity */}
       <div
         className="absolute inset-0 bg-center bg-cover bg-transparent"
-        style={{ backgroundImage: `url(${bg})`,filter:'blur(5px)' }}
+        style={{ backgroundImage: `url(${bg})`, filter: 'blur(5px)' }}
       ></div>
-
-      {/* Flex container for the split layout */}
-      <div className="relative w-full md:w-1/2 flex items-center justify-center  bg-opacity-90 p-8 rounded-lg shadow-lg">
-        {/* Left side for the form */}
-        <div className="w-full max-w-2xl  rounded-md shadow-lg bg-slate-900 opacity-90">
+      <div className="relative w-full md:w-1/2 flex items-center justify-center bg-opacity-90 p-8 rounded-lg shadow-lg">
+        <div className="w-full max-w-2xl rounded-md shadow-lg bg-slate-900 opacity-90">
           <h1 className="text-3xl text-white mb-6 text-center">Registration</h1>
-          <form>
-            <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 m-8 ">
+          <form >
+            <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 m-8">
               <div>
                 <label className="block text-white mb-2">First Name</label>
-                <input className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" type="text" placeholder="Enter First Name" />
+                <input
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  placeholder="Enter First Name"
+                />
               </div>
               <div>
                 <label className="block text-white mb-2">Last Name</label>
-                <input className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" type="text" placeholder="Enter Last Name" />
+                <input
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Enter Last Name"
+                />
               </div>
             </div>
             <div className="mb-4 m-8">
               <label className="block text-white mb-2">Email Address</label>
-              <input className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" type="email" placeholder="Enter Email Address" />
+              <input
+                className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter Email Address"
+              />
             </div>
             <div className="mb-4 m-8">
               <label className="block text-white mb-2">Phone Number</label>
-              <input className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" type="tel" placeholder="Enter Phone Number" />
+              <input
+                className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                type="tel"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                placeholder="Enter Phone Number"
+              />
             </div>
             <div className="mb-4 grid grid-cols-1 md:grid-cols-3 gap-4 m-8">
               <div>
                 <label className="block text-white mb-2">Country</label>
-                <select className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <select
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                >
                   <option>Select Country</option>
-                  {/* Add country options here */}
+                  {countries.map((country, index) => (
+                    <option key={index} value={country}>
+                      {country}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div>
                 <label className="block text-white mb-2">State</label>
-                <select className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <select
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                >
                   <option>Select State</option>
-                  {/* Add state options here */}
+                  {states.map((state, index) => (
+                    <option key={index} value={state}>
+                      {state}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div>
                 <label className="block text-white mb-2">City</label>
-                <select className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <select
+                  className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                >
                   <option>Select City</option>
-                  {/* Add city options here */}
+                  {cities.map((city, index) => (
+                    <option key={index} value={city}>
+                      {city}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
             <div className="mb-4 m-8">
               <label className="block text-white mb-2">Select Restaurant</label>
-              <select className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+              <select
+                className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                name="selectedRestaurant"
+                value={formData.selectedRestaurant}
+                onChange={handleChange}
+              >
                 <option>Select Restaurant</option>
-                {/* Add restaurant options here */}
+                {restaurants.map((restaurant, index) => (
+                  <option key={index} value={restaurant}>
+                    {restaurant}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="mb-4 m-8">
               <label className="block text-white mb-2">Password</label>
-              <input className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" type="password" placeholder="Enter Password" />
+              <input
+                className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter Password"
+              />
             </div>
             <div className="mb-4 m-8">
               <label className="block text-white mb-2">Confirm Password</label>
-              <input className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500" type="password" placeholder="Enter Confirm Password" />
+              <input
+                className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Confirm Password"
+              />
             </div>
             <div className="mb-4 m-8">
-              <input type="checkbox" className="mr-2" />
-              <label className="text-white">
-                I agree to all the <Link to="#" className="text-blue-500">T&C</Link> and <Link to="#" className="text-blue-500">Privacy Policies</Link>.
-              </label>
+              <label className="block text-white mb-2">Terms and Conditions</label>
+              <div className="flex items-center">
+                <input
+                  className="mr-2 leading-tight"
+                  type="checkbox"
+                  name="agreedToTerms"
+                  checked={formData.agreedToTerms}
+                  onChange={handleChange}
+                />
+                <span className="text-sm text-gray-200">I agree to the terms and conditions.</span>
+              </div>
             </div>
-            <button className="w-full bg-yellow-500 text-gray-900 p-2   rounded">Register</button>
+            {error && <p className="text-red-500 m-8">{error}</p>}
+            {success && <p className="text-green-500 m-8">{success}</p>}
+            <div className="text-center m-8">
+              <button
+                type="submit"
+                className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+                onClick={handleSubmit}
+              >
+                Register
+              </button>
+            </div>
+            <div className="text-center m-8">
+              <Link to="/login" className="text-yellow-500 hover:text-yellow-600">
+                Already have an account? Login
+              </Link>
+            </div>
           </form>
-          <p className="mt-4 text-white m-8">
-            Already have an account? <Link to="/" className="text-blue-500">Login</Link>
-          </p>
         </div>
       </div>
-
-      {/* Right side for the logo and text */}
-      <div className="relative hidden md:flex w-full md:w-1/2 flex-col items-center justify-center text-center text-white p-8 bg-opacity-50 rounded-r-lg">
-        <div className='flex gap-4 items-center'>
-
-        <img src={logo} alt="Restaurants Logo" className="w-24 h-24 mb-4" />
-        <h2 className="text-2xl font-bold">Restaurants</h2>
-
-        </div>
-        <p className="italic mb-4">Your Tagline</p>
-        <p className="max-w-md font-barlow">
-          Aenean blandit id nisl et pretium. Sed efficitur lectus ipsum, ac dapibus turpis auctor.
-        </p>
-      </div>
-      <div className='grid '>
-      <RestaurantCreationModal/>
-      </div>
-
     </div>
   );
 }
+
+export default Registration;

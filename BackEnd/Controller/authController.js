@@ -2,6 +2,8 @@ const User = require('../Model/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const sendEmail = require('../utils/generateToken');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const register = async (req, res) => {
     const {
@@ -25,7 +27,7 @@ const register = async (req, res) => {
       }
   
       // Create new user instance
-      user = new User({
+       user = new User({
         firstName,
         lastName,
         email,
@@ -63,7 +65,10 @@ const register = async (req, res) => {
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error');
+      console.log("user are not crateednd")
     }
+    console.log('JWT_SECRET:', process.env.JWT_SECRET);
+
   };
 
 const login = async (req, res) => {

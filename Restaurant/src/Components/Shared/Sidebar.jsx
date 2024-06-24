@@ -11,21 +11,21 @@ const Sidebar =()=>{
         <div className="text-2xl font-bold text-yellow-500">RESTAURANTS</div>
       </div>
       <nav>
-        <ul>
-          <li className="mb-4">
-            <Link to="/dashboard" className="block py-2 px-4 text-gray-300 rounded hover:bg-gray-700 hover:text-yellow-500">Dashboard</Link>
+        <ul className=''>
+          <li className="mb-8">
+            <Link to="/dashboard" className="block py-2 px-4 text-gray-300 rounded-xl text-2xl hover:bg-mainbg hover:text-yellow-500">Dashboard</Link>
           </li>
-          <li className="mb-4">
-            <Link to="/manage-order" className="block py-2 px-4 text-gray-300 rounded hover:bg-gray-700 hover:text-yellow-500">Manage Order</Link>
+          <li className="mb-8">
+            <Link to="/manage-order" className="block py-2 px-4 text-2xl text-gray-300 rounded-xl hover:bg-mainbg hover:text-yellow-500">Manage Order</Link>
           </li>
-          <li className="mb-4">
-            <Link to="/manage-menu" className="block py-2 px-4 text-gray-300 rounded hover:bg-gray-700 hover:text-yellow-500">Manage Menu</Link>
+          <li className="mb-8">
+            <Link to="/manage-menu" className="block py-2 px-4 text-gray-300 text-2xl rounded-xl hover:bg-mainbg hover:text-yellow-500">Manage Menu</Link>
           </li>
-          <li className="mb-4">
-            <Link to="/payment-history" className="block py-2 px-4 text-gray-300 rounded hover:bg-gray-700 hover:text-yellow-500">Payment History</Link>
+          <li className="mb-8">
+            <Link to="/payment-history" className="block py-2 px-4 text-gray-300 text-2xl rounded-xl hover:bg-mainbg hover:text-yellow-500">Payment History</Link>
           </li>
-          <li className="mb-4">
-            <Link to="/qr-codes" className="block py-2 px-4 text-gray-300 rounded hover:bg-gray-700 hover:text-yellow-500">QR Codes</Link>
+          <li className="mb-8">
+            <Link to="/qr-codes" className="block py-2 px-4 text-gray-300 rounded-xl text-2xl hover:bg-mainbg hover:text-yellow-500">QR Codes</Link>
           </li>
         </ul>
       </nav>
