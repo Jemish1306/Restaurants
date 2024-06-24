@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import bg from '../../assets/Img/restobg.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+
 
 export function Registration() {
   const initialFormData = {
@@ -17,6 +19,7 @@ export function Registration() {
     confirmPassword: '',
     agreedToTerms: false,
   };
+  const navigate=useNavigate();
 
   const [formData, setformData] = useState(initialFormData);
   const [error, setError] = useState('');
@@ -34,6 +37,7 @@ export function Registration() {
     e.preventDefault();
     setSuccess('');
     setError('');
+    navigate('/')
 
     try {
       const response = await axios.post('http://localhost:5000/api/auth/register', formData);
