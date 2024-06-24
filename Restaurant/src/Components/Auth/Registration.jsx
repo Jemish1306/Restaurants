@@ -231,7 +231,7 @@ export function Registration() {
               </button>
             </div>
             <div className="text-center m-8">
-              <Link to="/login" className="text-yellow-500 hover:text-yellow-600">
+              <Link to="/" className="text-yellow-500 hover:text-yellow-600">
                 Already have an account? Login
               </Link>
             </div>
