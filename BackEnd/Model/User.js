@@ -8,9 +8,9 @@ const UserSchema = new mongoose.Schema({
   country: { type: String, required: true },
   state: { type: String, required: true },
   city: { type: String, required: true },
-  selectedRestaurant: { type: String, required: true },
+  selectedRestaurant: { type: String, required: false },
   password: { type: String, required: true },
-  agreedToTerms: { type: Boolean, required: true },
+  agreedToTerms: { type: Boolean, required: false },
 });
 
 const User = mongoose.model('User', UserSchema);

@@ -6,17 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const register = async (req, res) => {
-    const {
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      country,
-      state,
-      city,
-      restaurant,
-      password
-    } = req.body;
+  const { firstName, lastName, email, phoneNumber, country, state, city, restaurant, password } = req.body;
   
     try {
       // Check if user already exists
@@ -27,17 +17,7 @@ const register = async (req, res) => {
       }
   
       // Create new user instance
-       user = new User({
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        country,
-        state,
-        city,
-        restaurant,
-        password
-      });
+      user = new User({ firstName, lastName, email, phoneNumber, country, state, city, restaurant, password });
   
       // Hash password
       const salt = await bcrypt.genSalt(10);
@@ -67,9 +47,14 @@ const register = async (req, res) => {
       res.status(500).send('Server Error');
       console.log("user are not crateednd")
     }
-    console.log('JWT_SECRET:', process.env.JWT_SECRET);
+
+
 
   };
+  console.log('JWT_SECRET:', process.env.JWT_SECRET);
+  const crypto = require('crypto');
+const secret = crypto.randomBytes(64).toString('hex');
+console.log(secret);
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -105,6 +90,7 @@ const login = async (req, res) => {
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
+    console.log("register eoorro")
   }
 };
 

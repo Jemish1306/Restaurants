@@ -8,7 +8,7 @@ const cors=require('cors');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 
 // Middleware
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ const { register } = require('./Controller/authController.js');
 app.use(cors());
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
-app.post('/api/auth/register', register);
+app.post('/api/auth/register',register);
 // app.use('/api/users', userRoutes);
 
 // Error handling middleware (must be defined after all routes)
