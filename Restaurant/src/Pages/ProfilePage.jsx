@@ -133,7 +133,7 @@ const ProfilePage = () => {
               <ul className="space-y-4">
                 <li>
                   <button
-                    className={`py-2 px-4 bg-accent shadow-lg text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500 ${
+                    className={`py-2 px-4 bg-accent h-20 shadow-lg text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500 ${
                       activeSection === 'profile' ? 'bg-yellow-500' : ''
                     }`}
                     onClick={() => setActiveSection('profile')}
@@ -143,7 +143,7 @@ const ProfilePage = () => {
                 </li>
                 <li>
                   <button
-                    className={`py-2 px-4 bg-accent shadow-lg text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500 ${
+                    className={`py-2 px-4 bg-accent shadow-lg h-20 text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500 ${
                       activeSection === 'changePassword' ? 'bg-yellow-500' : ''
                     }`}
                     onClick={() => setActiveSection('changePassword')}
@@ -153,7 +153,7 @@ const ProfilePage = () => {
                 </li>
                 <li>
                   <button
-                    className={`py-2 px-4 bg-accent shadow-lg text-white font-semibold rounded-md w-full text-left hover:bg-yellow-500 ${
+                    className={`py-2 px-4 bg-accent shadow-lg text-white h-20 font-semibold rounded-md w-full text-left hover:bg-yellow-500 ${
                       activeSection === 'termsAndConditions' ? 'bg-yellow-500' : ''
                     }`}
                     onClick={() => setActiveSection('termsAndConditions')}

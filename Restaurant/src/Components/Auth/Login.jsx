@@ -1,38 +1,38 @@
 import { useState } from 'react';
 import bg from '../../assets/Img/restobg.jpg';
-import { Link,  useNavigate } from 'react-router-dom';
-import logo from '../../assets/Img/Group.png'
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../assets/Img/Group.png';
+import axios from 'axios';
 
- export function  Login ()  {
+export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  // const imgBaseUrl = process.env.BG
+  const navigate = useNavigate();
 
-  const navigate=useNavigate();
-
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email === 'test@example.com' && password === 'password') {
-      alert('Login successful');
-      navigate('/profile')
-    } else {
-      setError('Incorrect Password');
+    navigate('/profile');
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      if (response.data.success) {
+        alert('Login successful');
+       
+      } else {
+        setError(response.data.message);
+      }
+      console.log("login sussfully")
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+      console.log("login error")
     }
   };
 
   return (
     <div className="relative min-h-screen flex flex-col md:flex-row">
-      {/* Background with blur */}
-      <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: `url(${bg})`, filter:'blur(8px)' }}
-      ></div>
-      
+      <div className="absolute inset-0 bg-center bg-cover" style={{ backgroundImage: `url(${bg})`, filter: 'blur(8px)' }}></div>
 
-      {/* Left side for the login form */}
-      <div className="relative w-full md:w-1/2 flex items-center justify-center  bg-opacity-0 p-8 rounded-lg shadow-lg">
+      <div className="relative w-full md:w-1/2 flex items-center justify-center bg-opacity-0 p-8 rounded-lg shadow-lg">
         <div className="w-full max-w-2xl bg-gray-900 bg-opacity-90 p-10 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-white mb-6">Login</h2>
           <form onSubmit={handleLogin}>
@@ -76,21 +76,18 @@ import logo from '../../assets/Img/Group.png'
         </div>
       </div>
 
-      {/* Right side for the logo and text */}
       <div className="relative hidden md:flex w-full md:w-1/2 flex-col items-center justify-center text-center text-white p-8 bg-opacity-90">
         <div className='flex gap-4 items-center'>
-        <img src={logo} alt="Restaurants Logo" className="w-28 h-28 mb-4" />
-        <h2 className="text-3xl font-bold text-orange-400 ">Restaurants</h2>
-
+          <img src={logo} alt="Restaurants Logo" className="w-28 h-28 mb-4" />
+          <h2 className="text-3xl font-bold text-orange-400 ">Restaurants</h2>
         </div>
         <p className="italic mb-4">Your Tagline</p>
         <p className="max-w-md">
-          Aenean blandit id nisl et pretium. Sed efficitur lectus ipsum, 
-          <p className=' text-orange-300 font-sans text-3xl'>ac dapibus turpis auctor.
-            </p>
+          Aenean blandit id nisl et pretium. Sed efficitur lectus ipsum,
+          <p className='text-orange-300 font-sans text-3xl'>ac dapibus turpis auctor.
+          </p>
         </p>
       </div>
     </div>
   );
 }
-

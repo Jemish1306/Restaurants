@@ -25,6 +25,7 @@ const register = async (req, res) => {
   
       // Save user to database
       await user.save();
+      console.log("login sussfully")
   
       // Create JWT token
       const payload = {
@@ -47,53 +48,52 @@ const register = async (req, res) => {
       res.status(500).send('Server Error');
       console.log("user are not crateednd")
     }
-
+    console.log('JWT_SECRET:', process.env.JWT_SECRET);
+    const crypto = require('crypto');
+  const secret = crypto.randomBytes(64).toString('hex');
+  console.log(secret);
 
 
   };
-  console.log('JWT_SECRET:', process.env.JWT_SECRET);
-  const crypto = require('crypto');
-const secret = crypto.randomBytes(64).toString('hex');
-console.log(secret);
 
-const login = async (req, res) => {
-  const { email, password } = req.body;
 
-  try {
-    let user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(400).json({ msg: 'Invalid credentials' });
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(400).json({ msg: 'Invalid credentials' });
-    }
-
-    const payload = {
-      user: {
-        id: user.id,
-      },
-    };
-
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
+  const login = async (req, res) => {
+    const { email, password } = req.body;
+  
+    try {
+      let user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.status(400).json({ msg: 'Invalid credentials' });
       }
-    );
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-    console.log("register eoorro")
-  }
-};
-
+  
+      const isMatch = await bcrypt.compare(password, user.password);
+  
+      if (!isMatch) {
+        return res.status(400).json({ msg:'Invalid credentials' });
+      }
+  console.log("login susss fullu")
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+  
+      jwt.sign(
+        payload,
+        process.env.JWT_SECRET,
+        { expiresIn: '1h' },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+      console.log("backend error")
+    }
+  };
 const forgotPassword = async (req, res) => {
   const { email } = req.body;
 

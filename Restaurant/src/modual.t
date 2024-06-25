@@ -210,3 +210,20 @@ package.json: Project metadata and dependencies.
 
 
 rLn4iVkJwgwj8am6 mongodb password
+
+
+
+
+{
+    "firstName":"jemish",
+    "lastName":"mangukiya",
+    "email":"mangukiyakemish@gmail.com",
+    "phoneNumber": "9898714353546",
+    "country":"hitgif",
+       "city":"surat",
+    "selectedRestaurant": "a",
+    "password": "1234",
+    "confirmPassword": "1234",
+    "agreedToTerms": "True",
+    "state":"surat"
+}
