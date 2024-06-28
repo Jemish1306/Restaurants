@@ -48,7 +48,8 @@ const register = async (req, res) => {
       res.status(500).send('Server Error');
       console.log("user are not crateednd")
     }
-    console.log('JWT_SECRET:', process.env.JWT_SECRET);
+    console.log('JWT_SECRET:', process.env.JWT_SECRET);     
+    // it is create SECRET key 
     const crypto = require('crypto');
   const secret = crypto.randomBytes(64).toString('hex');
   console.log(secret);
@@ -94,6 +95,9 @@ const register = async (req, res) => {
       console.log("backend error")
     }
   };
+
+
+  
 const forgotPassword = async (req, res) => {
   const { email } = req.body;
 

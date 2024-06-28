@@ -1,11 +1,13 @@
 const express = require('express');
+
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const errorMiddleware = require('./Middlewares/errorMiddleware');
 const cors = require('cors');
 const connectDB = require('./DB/CannectDB.js');
-// Load environment variables from .env file
+const DataSeed = require('./Seed/seedData.js')
+
 dotenv.config();
 
 
@@ -20,32 +22,33 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Routes
 const authRoutes = require('./Routes/authRoutes.js');
 const orderRoutes = require('./Routes/orderRoutes.js');
-const { register, login } = require('./Controller/authController.js');
+const { register, login, forgotPassword } = require('./Controller/authController.js');
+const parcelOrderRoutes = require('./routes/parcelOrderRoutes.js');
+const { getParcelOrders } = require('./Controller/parcelOrderController.js');
 
 
 // app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/auth',authRoutes)
-app.post('/api/auth/register', register);
-app.post('/api/auth/login',login)
-
+app.use('/api/parcel',parcelOrderRoutes)
+app.post('/api/auth/register',register );
+app.post('/api/auth/login',login);
+app.post('/api/auth/forgatepassword',forgotPassword);
+app.post('./api/auth/verify-otp' );
+app.get('./api/admin/percelorder', getParcelOrders);   //  this frist method  to get api
+app.get('/api/admin', parcelOrderRoutes);   /// this second method
 // Error handling middleware (must be defined after all routes)
 app.use(errorMiddleware);
+// DATA SEED
+DataSeed() ;
 
-// Database connection
 
-// mongoose.connect(process.env.MONGODB_URI)
-//   .then(() => {
-//     console.log('MongoDB connected');
-//     // Start the server
-//     app.listen(PORT, () => {
-//       console.log(`Server running on port ${PORT}`);
-//     });
-//   })
-//   .catch(err => {
-//     console.error('MongoDB connection error:', err.message);
-//     process.exit(1); // Exit process with failure
-//   });
+
+
+
+
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+
 });

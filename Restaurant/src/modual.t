@@ -55,6 +55,10 @@ restaurant-dashboard/
 │   │   │   ├── Shared/
 │   │   │   │   ├── Header.js
 │   │   │   │   ├── Footer.js
+│   │   │   │   ├── ChangePassword.jsx
+│   │   │   │   ├── Layout.jsx
+│   │   │   │   ├── Navbar.jsx
+│   │   │   │   ├── Sidebar.jsx
 │   │   ├── context/
 │   │   │   ├── AuthContext.js
 │   │   │   ├── OrderContext.js

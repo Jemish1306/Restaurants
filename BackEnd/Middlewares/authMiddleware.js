@@ -12,7 +12,6 @@ const authMiddleware = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ msg: 'No token, authorization denied' });
   }
-
   try {
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

@@ -15,7 +15,7 @@ const createOrder = async (req, res) => {
     res.status(201).json({ msg: 'Order created successfully', order: newOrder });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send('Server Error'); 
   }
 };
 
@@ -27,6 +27,7 @@ const getAllOrders = async (req, res) => {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
+  console.log("getallorder hits")
 };
 
 const getOrderById = async (req, res) => {

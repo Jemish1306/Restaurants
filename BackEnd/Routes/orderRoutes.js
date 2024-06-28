@@ -9,5 +9,14 @@ router.get('/', authMiddleware, orderController.getAllOrders);
 router.get('/:id', authMiddleware, orderController.getOrderById);
 router.put('/:id', authMiddleware, orderController.updateOrder);
 router.delete('/:id', authMiddleware, orderController.deleteOrder);
+router.route("/get").get(orderController.getAllOrders)
+
+
+
 
 module.exports = router;
+
+
+
+
+

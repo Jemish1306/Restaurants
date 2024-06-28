@@ -99,7 +99,7 @@ export function Registration() {
             <div className="mb-4 m-8">
               <label className="block text-white mb-2">Email Address</label>
               <input
-                className="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="w-full p-2 rounded bg-secondary border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 type="email"
                 name="email"
                 value={formData.email}

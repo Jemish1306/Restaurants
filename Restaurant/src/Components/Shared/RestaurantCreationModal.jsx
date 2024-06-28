@@ -17,10 +17,10 @@ const RestaurantCreationModal = () => {
       [name]: value,
     });
   };
-
+// Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+    
     console.log(restaurantData);
     setShowModal(false);
   };

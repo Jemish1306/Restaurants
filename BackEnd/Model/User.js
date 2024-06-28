@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
   selectedRestaurant: { type: String, required: false },
   password: { type: String, required: true },
   agreedToTerms: { type: Boolean, required: false },
+  otp: {  type: String, default: null },
 });
 
 const User = mongoose.model('User', UserSchema);
