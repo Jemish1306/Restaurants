@@ -13,6 +13,7 @@ export default {
         mainbg:'#0B0F1F',
         secondary:'#1F1D2B',
         accent:'#2D303E',
+       
       },
     },
   },

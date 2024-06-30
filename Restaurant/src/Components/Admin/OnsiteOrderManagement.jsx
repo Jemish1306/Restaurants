@@ -19,6 +19,8 @@ const OnsiteOrderManagement = () => {
     };
 
     return (
+        <>
+        
         <div>
             <h2>In Progress</h2>
             {orders.filter(order => order.status === 'In Progress').map(order => (
@@ -35,6 +37,7 @@ const OnsiteOrderManagement = () => {
                 </div>
             ))}
         </div>
+        </>
     );
 };
 

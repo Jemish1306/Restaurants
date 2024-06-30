@@ -1,5 +1,6 @@
 import  { useEffect, useState } from 'react';
 import axios from 'axios';
+import Layout from '../Shared/Layout';
 
 const ParcelOrderManagement = () => {
 
@@ -31,6 +32,8 @@ const ParcelOrderManagement = () => {
     };
 
     return (
+        <>
+<Layout>
         <div className="container bg-mainbg mx-auto p-4">
             <h2 className="text-2xl font-bold  mb-4 text-primary">Request For Payments</h2>
             <table className="min-w-full bg-white border border-gray-300 mb-8">
@@ -124,6 +127,8 @@ const ParcelOrderManagement = () => {
                 </tbody>
             </table>
         </div>
+        </Layout>
+        </>
     );
 };
 

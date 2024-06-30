@@ -41,30 +41,34 @@ restaurant-dashboard/
 │   │   │   │   ├── OrderDetails.js
 │   │   │   │   ├── UserManagement.js
 │   │   │   ├── Auth/
-│   │   │   │   ├── Login.js
-│   │   │   │   ├── Registration.js
-│   │   │   │   ├── ForgotPassword.js
-│   │   │   │   ├── ForgotPasswordAndEnterOTP.js
+│   │   │   │   ├── Login.jsx
+│   │   │   │   ├── Registration.jsx
+│   │   │   │   ├── ForgotPassword.jsx
+│   │   │   │   ├── ForgotPasswordAndEnterOTP.jsx
 │   │   │   ├── Customer/
 │   │   │   │   ├── Menu.js
-│   │   │   │   ├── ItemDetails.js
+│   │   │   │   ├── ItemDetails.jsx
 │   │   │   │   ├── Cart.js
-│   │   │   │   ├── OrderSummary.js
+│   │   │   │   ├── OrderSummary.jsx
 │   │   │   ├── Kitchen/
-│   │   │   │   ├── OrderManagement.js
+│   │   │   │   ├── OrderManagement.jsx
 │   │   │   ├── Shared/
-│   │   │   │   ├── Header.js
-│   │   │   │   ├── Footer.js
 │   │   │   │   ├── ChangePassword.jsx
+│   │   │   │   ├── EditProfile.jsx
+│   │   │   │   ├── Header.jsx
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   ├── Profile.jsx
 │   │   │   │   ├── Layout.jsx
 │   │   │   │   ├── Navbar.jsx
 │   │   │   │   ├── Sidebar.jsx
 │   │   ├── context/
-│   │   │   ├── AuthContext.js
-│   │   │   ├── OrderContext.js
+│   │   │   ├── AuthContext.jsx
+│   │   │   ├── OrderContext.jsx
 │   │   ├── hooks/
 │   │   │   ├── useAuth.js
 │   │   │   ├── useOrder.js
+│   │   ├── routes
+│   │   │   ├── Additemroutes.jsx
 │   │   ├── pages/
 │   │   │   ├── HomePage.js
 │   │   │   ├── AdminPage.js
