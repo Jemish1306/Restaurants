@@ -25,7 +25,7 @@ const orderRoutes = require('./Routes/orderRoutes.js');
 const { register, login, forgotPassword } = require('./Controller/authController.js');
 const parcelOrderRoutes = require('./routes/parcelOrderRoutes.js');
 const { getParcelOrders } = require('./Controller/parcelOrderController.js');
-
+const itemroutes=require('./routes/ItemRoutes.js')
 
 // app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
@@ -37,6 +37,10 @@ app.post('/api/auth/forgatepassword',forgotPassword);
 app.post('./api/auth/verify-otp' );
 app.get('./api/admin/percelorder', getParcelOrders);   //  this frist method  to get api
 app.get('/api/admin', parcelOrderRoutes);   /// this second method
+app.use('/api',itemroutes)
+
+
+
 // Error handling middleware (must be defined after all routes)
 app.use(errorMiddleware);
 // DATA SEED
